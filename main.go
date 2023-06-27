@@ -37,6 +37,7 @@ func main() {
 	for i, v := range vulnerabilities {
 		run.AddRule(v.OSV.ID).
 			WithName(v.OSV.ID).
+			WithShortDescription(sarif.NewMultiformatMessageString(v.OSV.Details)).
 			WithFullDescription(sarif.NewMultiformatMessageString(v.OSV.Details)).
 			WithHelpURI(v.OSV.DatabaseSpecific.URL).WithProperties(sarif.Properties{
 			"aliases": v.OSV.Aliases,
